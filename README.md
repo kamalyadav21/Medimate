@@ -4,3 +4,6 @@ You have to extract the folder Medimate.zip to access all the files.
 
 The password for accessing the doctors' page is admin. Medimate suggests doctors based on the symptoms described by the patient. It works based on the data fed to it.
 A demo video has been uploaded for the same. Thank you :)
+
+
+The video trial for the Medimate is : https://drive.google.com/file/d/1wPpEGna7xvae1U4HYfPqD6P2hPeYScbS/view?usp=drive_link
