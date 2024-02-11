@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Our Medical Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet"> <!-- Import Roboto font with bold weight -->
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #7fd6ff, #5bd19f); /* Light blue to green gradient */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            perspective: 1000px; /* Add perspective */
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            transform-style: preserve-3d; /* Preserve 3D transformations */
+        }
+
+        .word-art {
+            font-family: 'Roboto', sans-serif; /* Apply Roboto font */
+            font-size: 48px;
+            font-weight: bold; /* Make it bold */
+            color: #004d99; /* Dark blue color */
+            text-transform: uppercase; /* Uppercase text */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add text shadow */
+            letter-spacing: 2px; /* Increase letter spacing */
+            margin-bottom: 20px;
+            text-align: center;
+            transform: translateZ(50px); /* Move the text forward in 3D space */
+        }
+
+        p {
+            color: #4d4d4d;
+            font-size: 18px;
+            line-height: 1.5;
+            animation: fadeIn 1s ease; /* Add animation */
+            transform: translateZ(30px); /* Move the paragraph forward in 3D space */
+        }
+
+        .section {
+            padding: 40px;
+            background: linear-gradient(135deg, #c5faff, #a7f3d0); /* Ultra light aqua gradient */
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, opacity 0.3s ease; /* Add opacity transition */
+            transform-style: preserve-3d; /* Preserve 3D transformations */
+        }
+
+        .section:hover {
+            transform: scale(1.05) rotateY(10deg); /* Apply scale and rotation on hover */
+            opacity: 0.8; /* Reduce opacity on hover */
+        }
+
+        #doctors h2 {
+            color: #004d99; /* Dark blue color for "For Doctors" */
+        }
+
+        #patients h2 {
+            color: #004080; /* Dark blue color for "For Patients" */
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Keyframe animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="word-art">Welcome to Our Medical Platform</h1> <!-- Apply the word art style -->
+            <p>Here you can find accurate medical information, connect with healthcare professionals, and improve your overall well-being.</p>
+            <div id="datetime"></div>
+        </header>
+        <section id="doctors" class="section" data-aos="fade-up">
+            <h2>For Doctors</h2>
+            <p>Join our community of medical professionals, collaborate on patient cases, and access the latest medical research.</p>
+            <a href="pswd.html">Learn More</a>
+        </section>
+        <section id="patients" class="section" data-aos="fade-up">
+            <h2>For Patients</h2>
+            <p>Explore our resources, find trusted healthcare providers, and take control of your health.</p>
+            <a href="https://www.blackbox.ai/agent/MediMateVVGa8bc">Learn More</a>
+        </section>
+    </div>
+    <script>
+        // Smooth scroll effect for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Function to update date and time
+        function updateTime() {
+            const datetime = document.getElementById('datetime');
+            const now = new Date();
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const timeOptions = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
+            const date = now.toLocaleDateString('en-US', dateOptions);
+            const time = now.toLocaleTimeString('en-US', timeOptions);
+            datetime.innerHTML = `Today is ${date}. The current time is ${time}.`;
+        }
+
+        // Update time initially
+        updateTime();
+
+        // Update time every second
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
